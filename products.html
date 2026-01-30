@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleHub - Products</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #3498db;
+        }
+        
+        .cart-icon {
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 0.8rem;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-price {
+            font-size: 1.5rem;
+            color: #27ae60;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .product-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">StyleHub</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="cart-icon">🛒 Cart <span class="cart-count" id="cartCount">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Our Products</h1>
+        <p>Browse our complete collection</p>
+    </section>
+
+    <div class="container">
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">👕</div>
+                <div class="product-info">
+                    <h3 class="product-title">Classic T-Shirt</h3>
+                    <p class="product-price">$29.99</p>
+                    <p class="product-description">Comfortable cotton t-shirt for everyday wear</p>
+                    <button class="btn" onclick="addToCart('Classic T-Shirt', 29.99)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">👖</div>
+                <div class="product-info">
+                    <h3 class="product-title">Denim Jeans</h3>
+                    <p class="product-price">$79.99</p>
+                    <p class="product-description">Premium quality denim jeans</p>
+                    <button class="btn" onclick="addToCart('Denim Jeans', 79.99)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">👗</div>
+                <div class="product-info">
+                    <h3 class="product-title">Summer Dress</h3>
+                    <p class="product-price">$59.99</p>
+                    <p class="product-description">Light and breezy summer dress</p>
+                    <button class="btn" onclick="addToCart('Summer Dress', 59.99)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🧥</div>
+                <div class="product-info">
+                    <h3 class="product-title">Leather Jacket</h3>
+                    <p class="product-price">$199.99</p>
+                    <p class="product-description">Stylish genuine leather jacket</p>
+                    <button class="btn" onclick="addToCart('Leather Jacket', 199.99)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">👔</div>
+                <div class="product-info">
+                    <h3 class="product-title">Business Shirt</h3>
+                    <p class="product-price">$49.99</p>
+                    <p class="product-description">Professional formal shirt</p>
+                    <button class="btn" onclick="addToCart('Business Shirt', 49.99)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🩳</div>
+                <div class="product-info">
+                    <h3 class="product-title">Shorts</h3>
+                    <p class="product-price">$34.99</p>
+                    <p class="product-description">Comfortable casual shorts</p>
+                    <button class="btn" onclick="addToCart('Shorts', 34.99)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🧢</div>
+                <div class="product-info">
+                    <h3 class="product-title">Baseball Cap</h3>
+                    <p class="product-price">$24.99</p>
+                    <p class="product-description">Trendy baseball cap</p>
+                    <button class="btn" onclick="addToCart('Baseball Cap', 24.99)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">👟</div>
+                <div class="product-info">
+                    <h3 class="product-title">Sneakers</h3>
+                    <p class="product-price">$89.99</p>
+                    <p class="product-description">Comfortable running sneakers</p>
+                    <button class="btn" onclick="addToCart('Sneakers', 89.99)">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🧣</div>
+                <div class="product-info">
+                    <h3 class="product-title">Winter Scarf</h3>
+                    <p class="product-price">$39.99</p>
+                    <p class="product-description">Warm wool scarf</p>
+                    <button class="btn" onclick="addToCart('Winter Scarf', 39.99)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 StyleHub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cartCount').textContent = cart.length;
+        }
+
+        function addToCart(name, price) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name, price, quantity: 1 });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            alert(name + ' added to cart!');
+        }
+
+        updateCartCount();
+    </script>
+</body>
+</html>
